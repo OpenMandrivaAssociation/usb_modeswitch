@@ -1,13 +1,14 @@
 %define name    usb_modeswitch
-%define version 0.9.3
-%define rel	1
+%define version 0.9.4
+%define	fver	0.9.4beta2
+%define rel	0.beta2.1
 
 Name:           %{name}
 Summary:        Activating Switchable USB Devices on Linux
 Version:        %{version}
 Release:        %mkrel %{rel}
 License:        GPL
-Source:         http://www.draisberghof.de/usb_modeswitch/usb_modeswitch-%{version}.tar.bz2
+Source:         http://www.draisberghof.de/usb_modeswitch/usb_modeswitch-%{fver}.tar.bz2
 Patch0:		usb_modeswitch-0.9.3-gtmax72.patch
 URL:            http://www.draisberghof.de/usb_modeswitch/
 Group:          System/Configuration/Hardware
@@ -30,7 +31,7 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{fver}
 %patch0 -p1 -b .gtmax72
 
 %build
