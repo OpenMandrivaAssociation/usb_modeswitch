@@ -9,7 +9,6 @@ Version:        %{version}
 Release:        %mkrel %{rel}
 License:        GPL
 Source:         http://www.draisberghof.de/usb_modeswitch/usb_modeswitch-%{fver}.tar.bz2
-Patch0:		usb_modeswitch-0.9.3-gtmax72.patch
 URL:            http://www.draisberghof.de/usb_modeswitch/
 Group:          System/Configuration/Hardware
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
@@ -32,7 +31,6 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 %prep
 %setup -q -n %{name}-%{fver}
-%patch0 -p1 -b .gtmax72
 
 %build
 rm -f usb_modeswitch
