@@ -1,7 +1,7 @@
 %define name    usb_modeswitch
-%define version 0.9.4
-%define	fver	0.9.4beta2
-%define rel	0.beta2.1
+%define version 0.9.7
+%define	fver	%{version}
+%define rel	1
 
 Name:           %{name}
 Summary:        Activating Switchable USB Devices on Linux
