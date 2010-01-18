@@ -1,5 +1,5 @@
 %define name    usb_modeswitch
-%define version 1.0.5
+%define version 1.0.7
 %define	fver	%{version}
 %define rel	1
 
