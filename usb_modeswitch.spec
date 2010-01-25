@@ -1,5 +1,6 @@
 %define name    usb_modeswitch
-%define version 1.0.7
+%define fname	usb-modeswitch
+%define version 1.1.0
 %define	fver	%{version}
 %define rel	1
 
@@ -7,14 +8,15 @@ Name:           %{name}
 Summary:        Activating Switchable USB Devices on Linux
 Version:        %{version}
 Release:        %mkrel %{rel}
-License:        GPL
-Source:         http://www.draisberghof.de/usb_modeswitch/usb_modeswitch-%{fver}.tar.bz2
+License:        GPLv2
+Source:         http://www.draisberghof.de/usb_modeswitch/%{fname}-%{fver}.tar.bz2
 URL:            http://www.draisberghof.de/usb_modeswitch/
 Group:          System/Configuration/Hardware
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	kernel-source
 BuildRequires:	libusb-devel
 Requires:	sysfsutils
+Requires:	tcl
 
 %description
 USB_ModeSwitch is a mode switching tool for controlling "flip flop"
@@ -30,31 +32,37 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 
 %prep
-%setup -q -n %{name}-%{fver}
+%setup -q -n %{fname}-%{fver}
 
 %build
-rm -f usb_modeswitch
-gcc -O -o usb_modeswitch usb_modeswitch.c -l usb
+rm -f usb-modeswitch
+gcc -O -Wall -o usb_modeswitch usb_modeswitch.c -l usb
 
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_sbindir} \
 	%{buildroot}%{_sysconfdir} \
-	%{buildroot}%{_sysconfdir}/udev/rules.d
+	%{buildroot}%{_sysconfdir}/udev/rules.d \
+	%{buildroot}%{_sysconfdir}/usb_modeswitch.d \
+	%{buildroot}%{_mandir}/man1 \
+	%{buildroot}/lib/udev
 
 install -m 755 usb_modeswitch %{buildroot}%{_sbindir}
-install -m 644 usb_modeswitch.conf %{buildroot}%{_sysconfdir}
-
-cat > %{buildroot}%{_sysconfdir}/udev/rules.d/91-usb_modeswitch.rules <<EOF
-SUBSYSTEMS=="usb", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="1000", RUN+="%{_sbindir}/usb_modeswitch"
-EOF
+install -m 644 usb_modeswitch.conf %{buildroot}%{_sysconfdir}/usb-modeswitch.conf
+install -m 644 40-usb_modeswitch.rules %{buildroot}%{_sysconfdir}/udev/rules.d/91-usb_modeswitch.rules
+install -m 644 ./usb_modeswitch.d/* %{buildroot}%{_sysconfdir}/usb_modeswitch.d/
+install -m 755 ./usb_modeswitch.sh %{buildroot}//lib/udev/usb_modeswitch
+install -m 644 ./usb_modeswitch.1 %{buildroot}%{_mandir}/man1/
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
+%dir %{_sysconfdir}/usb_modeswitch.d
+/lib/udev/usb_modeswitch
 %{_sbindir}/*
-%attr(644,root,root) %config(noreplace) %{_sysconfdir}/usb_modeswitch.conf
+%{_mandir}/man1/*
+%attr(644,root,root) %config(noreplace) %{_sysconfdir}/usb_modeswitch.d/*
+%attr(644,root,root) %config(noreplace) %{_sysconfdir}/usb-modeswitch.conf
 %attr(644,root,root) %config(noreplace) %{_sysconfdir}/udev/rules.d/91-usb_modeswitch.rules
-
