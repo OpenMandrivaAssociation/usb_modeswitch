@@ -8,7 +8,7 @@ Name:           %{name}
 Summary:        Activating Switchable USB Devices on Linux
 Version:        %{version}
 Release:        %mkrel %{rel}
-License:        GPLv2
+License:        GPLv2+
 Source:         http://www.draisberghof.de/usb_modeswitch/%{fname}-%{fver}.tar.bz2
 URL:            http://www.draisberghof.de/usb_modeswitch/
 Group:          System/Configuration/Hardware
