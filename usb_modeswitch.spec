@@ -33,10 +33,10 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 %prep
 %setup -q -n %{fname}-%{fver}
+make clean
 
 %build
-rm -f usb-modeswitch
-gcc -O -Wall -o usb_modeswitch usb_modeswitch.c -l usb
+%make CFLAGS="%{optflags} %{ldflags} -lusb"
 
 %install
 rm -rf %{buildroot}
