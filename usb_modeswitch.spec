@@ -1,18 +1,14 @@
-%define name    usb_modeswitch
+Name:		usb_modeswitch
+Summary:	Activating Switchable USB Devices on Linux
+Version:	1.1.1
+Release:	%mkrel 1
+License:	GPLv2+
 %define fname	usb-modeswitch
-%define version 1.1.1
 %define	fver	%{version}
-%define rel	1
-
-Name:           %{name}
-Summary:        Activating Switchable USB Devices on Linux
-Version:        %{version}
-Release:        %mkrel %{rel}
-License:        GPLv2+
-Source:         http://www.draisberghof.de/usb_modeswitch/%{fname}-%{fver}.tar.bz2
-URL:            http://www.draisberghof.de/usb_modeswitch/
-Group:          System/Configuration/Hardware
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
+Source0:	http://www.draisberghof.de/usb_modeswitch/%{fname}-%{fver}.tar.bz2
+URL:		http://www.draisberghof.de/usb_modeswitch/
+Group:		System/Configuration/Hardware
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	libusb-devel
 Requires:	sysfsutils
 Requires:	tcl
