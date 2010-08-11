@@ -13,7 +13,6 @@ Source:         http://www.draisberghof.de/usb_modeswitch/%{fname}-%{fver}.tar.b
 URL:            http://www.draisberghof.de/usb_modeswitch/
 Group:          System/Configuration/Hardware
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires:	kernel-source
 BuildRequires:	libusb-devel
 Requires:	sysfsutils
 Requires:	tcl
