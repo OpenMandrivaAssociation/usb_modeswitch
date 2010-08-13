@@ -40,8 +40,6 @@ export CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 rm -rf %{buildroot}
 %makeinstall_std
 %makeinstall_std -C usb-modeswitch-data-%{dataver}
-#(proyvind): why change from default 40 to 91..? Please clarify!
-mv %{buildroot}/lib/udev/rules.d/{40,91}-usb_modeswitch.rules
 
 %clean
 rm -rf %{buildroot}
@@ -54,4 +52,4 @@ rm -rf %{buildroot}
 %{_mandir}/man1/*
 %attr(644,root,root) %{_sysconfdir}/usb_modeswitch.d/*
 %attr(644,root,root) %config(noreplace) %{_sysconfdir}/usb_modeswitch.conf
-%attr(644,root,root) /lib/udev/rules.d/91-usb_modeswitch.rules
+%attr(644,root,root) /lib/udev/rules.d/40-usb_modeswitch.rules
