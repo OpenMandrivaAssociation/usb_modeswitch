@@ -9,6 +9,7 @@ License:	GPLv2+
 %define	fver	%{version}
 Source0:	http://www.draisberghof.de/usb_modeswitch/%{fname}-%{fver}.tar.bz2
 Source1:	http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-%{dataver}.tar.bz2
+Patch0:		usb-modeswitch-data-20100707-samsung-4g.patch
 URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
@@ -31,6 +32,7 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 %prep
 %setup -q -n %{fname}-%{fver} -a1
+%patch0 -p0
 
 %build
 export CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
