@@ -6,6 +6,10 @@ License:	GPLv2+
 %define fname	usb-modeswitch
 %define	fver	%{version}
 Source0:	http://www.draisberghof.de/usb_modeswitch/%{fname}-%{version}.tar.bz2
+# (proyvind): fix a warning revealed with optimizations enabled and enable them
+#             by default so that they'll get catched by upstream in the future.
+#             Submitted upstream
+Patch0:		usb-modeswitch-1.1.4-catch-and-fix-more-warnings.patch
 URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
@@ -27,6 +31,7 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 %prep
 %setup -q -n %{fname}-%{version}
+%patch0 -p1 -b .warnings~
 
 %build
 export CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
