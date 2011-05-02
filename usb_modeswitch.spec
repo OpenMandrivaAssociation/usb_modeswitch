@@ -13,7 +13,6 @@ Patch0:		usb-modeswitch-1.1.7-catch-and-fix-more-warnings.patch
 Patch1:		usb-modeswitch-1.1.7-dont-exit-on-interface-class-error.patch
 URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	libusb-devel
 Requires:	sysfsutils
 Requires:	usb_modeswitch-data >= 20110227
@@ -39,14 +38,9 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 %make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 /lib/udev/usb_modeswitch
 %{_sbindir}/*
 %{_mandir}/man1/*
