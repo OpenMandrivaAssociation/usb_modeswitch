@@ -14,7 +14,7 @@ URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 BuildRequires:	libusb-devel
 Requires:	sysfsutils
-Requires:	usb_modeswitch-data >= 20110619
+Requires:	usb_modeswitch-data >= 20110805
 
 %description
 USB_ModeSwitch is a mode switching tool for controlling "flip flop"
