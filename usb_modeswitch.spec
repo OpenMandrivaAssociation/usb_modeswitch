@@ -1,6 +1,6 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	1.1.8
+Version:	1.1.9
 Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
@@ -9,7 +9,7 @@ Source0:	http://www.draisberghof.de/usb_modeswitch/%{fname}-%{version}.tar.bz2
 # (proyvind): fix a warning revealed with optimizations enabled and enable them
 #             by default so that they'll get catched by upstream in the future.
 #             Submitted upstream
-Patch0:		usb-modeswitch-1.1.8-catch-and-fix-more-warnings.patch
+Patch0:		usb-modeswitch-1.1.9-catch-and-fix-more-warnings.patch
 URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 BuildRequires:	libusb-devel
