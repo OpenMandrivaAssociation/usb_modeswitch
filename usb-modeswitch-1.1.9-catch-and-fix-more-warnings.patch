@@ -1,0 +1,30 @@
+--- usb-modeswitch-1.1.9/Makefile.warnings~	2011-08-03 19:31:22.000000000 +0200
++++ usb-modeswitch-1.1.9/Makefile	2011-08-06 17:03:43.124284263 +0200
+@@ -2,6 +2,7 @@ PROG        = usb_modeswitch
+ VERS        = 1.1.9
+ CC          = gcc
+ CFLAGS      += -Wall
++CFLAGS      = -O2
+ LIBS        = -l usb
+ RM          = /bin/rm -f
+ OBJS        = usb_modeswitch.c
+@@ -22,7 +23,7 @@ clean:
+ 	$(RM) usb_modeswitch
+ 
+ install: all
+-	install -D -s --mode=755 usb_modeswitch $(SBINDIR)/usb_modeswitch
++	install -D --mode=755 usb_modeswitch $(SBINDIR)/usb_modeswitch
+ 	install -D --mode=755 usb_modeswitch.tcl $(SBINDIR)/usb_modeswitch_dispatcher
+ 	install -D --mode=755 usb_modeswitch.sh $(UDEVDIR)/usb_modeswitch
+ 	install -D --mode=644 usb_modeswitch.conf $(ETCDIR)/usb_modeswitch.conf
+--- usb-modeswitch-1.1.9/usb_modeswitch.c.warnings~	2011-08-05 19:24:13.000000000 +0200
++++ usb-modeswitch-1.1.9/usb_modeswitch.c	2011-08-06 17:03:03.837775412 +0200
+@@ -1362,7 +1362,7 @@ void release_usb_device(int dummy) {
+ struct usb_device* search_devices( int *numFound, int vendor, int product, char* productList, int targetClass, int configuration, int mode)
+ {
+ 	struct usb_bus *bus;
+-	char *listcopy, *token, buffer[2];
++	char *listcopy = NULL, *token, buffer[2];
+ 	int devClass;
+ 	struct usb_device* right_dev = NULL;
+ 	struct usb_dev_handle *testdevh;
