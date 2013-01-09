@@ -1,7 +1,7 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	1.2.3
-Release:	2
+Version:	1.2.5
+Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
 %define	fver	%{version}
@@ -14,7 +14,7 @@ URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 BuildRequires:	libusb-devel
 Requires:	sysfsutils
-Requires(pre):       tcl
+Requires(pre):	tcl
 Requires:	usb_modeswitch-data >= 20110805
 
 %description
