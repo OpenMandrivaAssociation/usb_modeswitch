@@ -13,7 +13,7 @@ Source0:	http://www.draisberghof.de/usb_modeswitch/%{fname}-%{version}.tar.bz2
 URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 Source1:	usb_modeswitch.rpmlintrc
-BuildRequires:	libusb-devel
+BuildRequires:	libusbx-devel
 Requires:	sysfsutils
 Requires(pre):	tcl
 Requires:	usb_modeswitch-data >= 20110805
