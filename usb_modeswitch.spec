@@ -1,6 +1,6 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	1.2.6
+Version:	2.1.0
 Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
@@ -35,7 +35,7 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 #patch0 -p1 -b .warnings~
 
 %build
-%make CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
+%make CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
 %makeinstall_std
