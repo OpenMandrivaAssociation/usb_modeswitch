@@ -16,7 +16,7 @@ Source1:	usb_modeswitch.rpmlintrc
 BuildRequires:	usb-compat-devel
 Requires:	sysfsutils
 Requires(pre):	tcl
-Requires:	usb_modeswitch-data >= 20140529
+Requires:	usb_modeswitch-data >= 20150627
 
 %description
 USB_ModeSwitch is a mode switching tool for controlling "flip flop"
