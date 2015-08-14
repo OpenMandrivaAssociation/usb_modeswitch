@@ -1,7 +1,7 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	2.2.3
-Release:	2
+Version:	2.2.5
+Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
 %define	fver	%{version}
