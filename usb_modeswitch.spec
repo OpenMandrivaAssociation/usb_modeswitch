@@ -1,6 +1,6 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	2.4.0
+Version:	2.5.0
 Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
@@ -12,7 +12,7 @@ Source1:	usb_modeswitch.rpmlintrc
 BuildRequires:	usb-compat-devel
 Requires:	sysfsutils
 Requires(pre):	tcl
-Requires:	usb_modeswitch-data >= 20160112
+Requires:	usb_modeswitch-data >= 20170205
 
 %description
 USB_ModeSwitch is a mode switching tool for controlling "flip flop"
