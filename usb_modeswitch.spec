@@ -10,7 +10,7 @@ URL:		http://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 Source1:	usb_modeswitch.rpmlintrc
 BuildRequires:	pkgconfig(libusb-1.0)
-BuildRequires:	pkgconfig(libsystemd)
+BuildRequires:	systemd
 BuildRequires:	systemd-macros
 # To avoid a file dependency
 BuildRequires:	tcl
