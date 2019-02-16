@@ -37,6 +37,7 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 %make_build CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
 %install
+mkdir -p %{buildroot}%{_unitdir}
 %make_install SYSDIR="%{buildroot}%{_unitdir}" UDEVDIR="%{buildroot}/lib/udev"
 
 %files
