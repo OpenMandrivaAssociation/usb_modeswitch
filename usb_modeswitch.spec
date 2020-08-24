@@ -1,12 +1,12 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	2.5.2
-Release:	5
+Version:	2.6.0
+Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
 %define	fver	%{version}
-Source0:	http://www.draisberghof.de/usb_modeswitch/%{fname}-%{version}.tar.bz2
-URL:		http://www.draisberghof.de/usb_modeswitch/
+Source0:	https://www.draisberghof.de/usb_modeswitch/%{fname}-%{version}.tar.bz2
+URL:		https://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 Source1:	usb_modeswitch.rpmlintrc
 BuildRequires:	pkgconfig(libusb-1.0)
