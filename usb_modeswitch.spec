@@ -11,7 +11,7 @@ Group:		System/Configuration/Hardware
 Source1:	usb_modeswitch.rpmlintrc
 BuildRequires:	pkgconfig(libusb-1.0)
 BuildRequires:	systemd
-BuildRequires:	systemd-macros
+BuildRequires:	systemd-rpm-macros
 # To avoid a file dependency
 BuildRequires:	tcl
 Requires:	systemd
