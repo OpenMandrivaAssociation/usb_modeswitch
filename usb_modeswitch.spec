@@ -1,7 +1,7 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
 Version:	2.6.0
-Release:	1
+Release:	2
 License:	GPLv2+
 %define fname	usb-modeswitch
 %define	fver	%{version}
@@ -34,15 +34,15 @@ up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 %build
 %setup_compile_flags
-%make_build CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
+%make_build CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" SBINDIR="%{_sbindir}"
 
 %install
 mkdir -p %{buildroot}%{_unitdir}
-%make_install SYSDIR="%{buildroot}%{_unitdir}" UDEVDIR="%{buildroot}/lib/udev"
+%make_install SYSDIR="%{buildroot}%{_unitdir}" UDEVDIR="%{buildroot}%{_prefix}/lib/udev" SBINDIR="%{buildroot}%{_sbindir}"
 
 %files
 %config(noreplace) %{_sysconfdir}/usb_modeswitch.conf
-/lib/udev/usb_modeswitch
+%{_prefix}/lib/udev/usb_modeswitch
 %{_sbindir}/*
 %{_unitdir}/*.service
 %{_mandir}/man1/*
