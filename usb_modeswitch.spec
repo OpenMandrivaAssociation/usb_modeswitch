@@ -9,6 +9,7 @@ Source0:	https://www.draisberghof.de/usb_modeswitch/%{fname}-%{version}.tar.bz2
 URL:		https://www.draisberghof.de/usb_modeswitch/
 Group:		System/Configuration/Hardware
 Source1:	usb_modeswitch.rpmlintrc
+BuildRequires:	make
 BuildRequires:	pkgconfig(libusb-1.0)
 BuildRequires:	systemd
 BuildRequires:	systemd-rpm-macros
