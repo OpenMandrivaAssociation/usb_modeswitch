@@ -1,7 +1,7 @@
 Name:		usb_modeswitch
 Summary:	Activating Switchable USB Devices on Linux
-Version:	2.6.0
-Release:	3
+Version:	2.6.2
+Release:	1
 License:	GPLv2+
 %define fname	usb-modeswitch
 %define	fver	%{version}
@@ -31,7 +31,7 @@ vanishes (in most cases), and a new device (like an USB modem) shows
 up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
 
 %prep
-%autosetup -n %{fname}-%{version}
+%autosetup -n usb-modeswitch-2.6.2
 
 %build
 %setup_compile_flags
